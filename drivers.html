@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Conductores - SelectDriver</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <meta name="description"
+        content="Oportunidades laborales para conductores profesionales en España. Requisitos, proceso de selección y recursos.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-primary': '#1E40AF',
+                        'orange-action': '#F97316',
+                        'gray-text': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-text flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-900 to-blue-primary text-white pt-28 pb-20 md:pt-40">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl lg:text-5xl font-bold mb-6 fade-in">Tu futuro profesional en Europa</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto fade-in mb-8">
+                Conectamos tu talento con las empresas de transporte de España.<br>
+                Proceso transparente, legal y sin comisiones de intermediación para el candidato.
+            </p>
+            <div class="fade-in">
+                <a href="#driver-form"
+                    class="inline-block bg-orange-action text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-orange-600 hover:shadow-xl transition-all transform hover:-translate-y-1">
+                    Iniciar evaluación
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold text-blue-primary mb-3">Requisitos indispensables</h2>
+                <p class="text-gray-600 text-sm font-medium">Si cumples estos requisitos, puedes iniciar tu evaluación.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-orange-action fade-in flex flex-col h-full">
+                    <i class="fas fa-id-card text-3xl text-blue-primary mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Permiso de Conducir</h3>
+                    <p class="text-gray-600 leading-relaxed">Licencia C3 vigente (equivalente en España a C+E).</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-orange-action fade-in flex flex-col h-full">
+                    <i class="fas fa-history text-3xl text-blue-primary mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Experiencia</h3>
+                    <p class="text-gray-600 leading-relaxed">Mínimo 5 años en transporte pesado (experiencia reciente
+                        demostrable).</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-orange-action fade-in flex flex-col h-full">
+                    <i class="fas fa-file-contract text-3xl text-blue-primary mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Pasaporte</h3>
+                    <p class="text-gray-600 leading-relaxed">Pasaporte vigente (recomendable con al menos 2 años).</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-orange-action fade-in flex flex-col h-full">
+                    <i class="fas fa-user-check text-3xl text-blue-primary mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Antecedentes</h3>
+                    <p class="text-gray-600 leading-relaxed">Antecedentes penales limpios (se solicita en fase
+                        documental).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selection Process -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold text-blue-primary mb-3">Nuestro Proceso de Selección</h2>
+                <p class="text-gray-600 text-sm font-medium">Proceso por fases. Cada etapa se confirma tras validar la
+                    anterior.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div
+                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 fade-in flex flex-col h-full text-center hover:-translate-y-1 transition-transform relative">
+                    <div
+                        class="w-12 h-12 bg-blue-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow shadow-blue-primary/30">
+                        1
+                    </div>
+                    <h3 class="text-lg font-bold text-blue-primary mb-3">Registro y sesión informativa</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Completa el registro y participa en una sesión
+                        donde explicamos el proceso, requisitos y expectativas.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div
+                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 fade-in flex flex-col h-full text-center hover:-translate-y-1 transition-transform relative">
+                    <div
+                        class="w-12 h-12 bg-orange-action text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow shadow-orange-action/30">
+                        2
+                    </div>
+                    <h3 class="text-lg font-bold text-blue-primary mb-3">Cuestionario y validación documental</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Revisamos tu información y documentación para
+                        verificar coherencia y requisitos del proceso.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div
+                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 fade-in flex flex-col h-full text-center hover:-translate-y-1 transition-transform relative">
+                    <div
+                        class="w-12 h-12 bg-blue-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow shadow-blue-primary/30">
+                        3
+                    </div>
+                    <h3 class="text-lg font-bold text-blue-primary mb-3">Entrevista técnica y evaluación de perfil</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Videollamada para validar experiencia, criterios
+                        técnicos y aspectos de adaptación profesional.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div
+                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 fade-in flex flex-col h-full text-center hover:-translate-y-1 transition-transform relative">
+                    <div
+                        class="w-12 h-12 bg-orange-action text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow shadow-orange-action/30">
+                        4
+                    </div>
+                    <h3 class="text-lg font-bold text-blue-primary mb-3">Preparación y habilitación del perfil</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Recibirás una preparación práctica para
+                        incorporarte con mayor seguridad. Después, validamos el estándar del proceso y activamos tu
+                        perfil para oportunidades con empresas.</p>
+                    <p class="text-xs text-gray-400 mt-auto border-t pt-3">Nota: La activación depende de superar las
+                        validaciones del proceso. No garantiza contratación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acompañamiento -->
+    <section class="py-10 bg-blue-primary text-white">
+        <div class="container mx-auto px-6 max-w-5xl text-center">
+            <h2 class="text-3xl font-bold mb-3 fade-in">Acompañamiento durante todo el proceso</h2>
+            <p class="text-lg text-blue-100 mb-8 fade-in">Te guiamos en cada etapa para que avances con claridad y
+                seguridad.</p>
+
+            <div class="grid md:grid-cols-3 gap-6 fade-in">
+                <div
+                    class="bg-white/10 px-8 py-7 rounded-xl border border-white/20 h-full flex flex-col items-center justify-center hover:bg-white/15 transition-colors">
+                    <i class="fas fa-compass text-2xl text-orange-300 mb-3"></i>
+                    <p class="font-bold text-base text-center">Antes de la selección</p>
+                    <p class="text-blue-100 text-sm text-center mt-1">Orientación y validación de requisitos</p>
+                </div>
+                <div
+                    class="bg-white/10 px-8 py-7 rounded-xl border border-white/20 h-full flex flex-col items-center justify-center hover:bg-white/15 transition-colors">
+                    <i class="fas fa-tasks text-2xl text-orange-300 mb-3"></i>
+                    <p class="font-bold text-base text-center">Durante la incorporación</p>
+                    <p class="text-blue-100 text-sm text-center mt-1">Pasos y preparación por fases</p>
+                </div>
+                <div
+                    class="bg-white/10 px-8 py-7 rounded-xl border border-white/20 h-full flex flex-col items-center justify-center hover:bg-white/15 transition-colors">
+                    <i class="fas fa-handshake text-2xl text-orange-300 mb-3"></i>
+                    <p class="font-bold text-base text-center">Tras la elección</p>
+                    <p class="text-blue-100 text-sm text-center mt-1">Apoyo en los primeros pasos de integración</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evaluation Form -->
+    <section class="py-16 bg-white" id="driver-form">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-blue-primary mb-4 fade-in">Formulario de Evaluación Inicial</h2>
+                <p class="text-gray-600 fade-in">Da el primer paso hacia tu carrera en Europa</p>
+            </div>
+
+            <!-- Success message -->
+            <div id="form-feedback" class="mb-6 rounded-xl p-5 border hidden" role="alert"></div>
+
+            <form id="drivers-form" onsubmit="handleFormSubmit(event, 'drivers')"
+                class="bg-gray-50 p-8 rounded-2xl shadow-lg border border-gray-200 fade-in">
+
+                <!-- Honeypot anti-spam field (hidden) -->
+                <div style="display:none" aria-hidden="true">
+                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
+                        <input type="text" name="fullName" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">País</label>
+                        <input type="text" name="country" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" name="email" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp (con prefijo)</label>
+                        <input type="tel" name="phone" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent"
+                            pattern="^\+?[0-9\s\-\(\)]+$">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Años de experiencia en transporte
+                        pesado</label>
+                    <select name="experience" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent bg-white">
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="Menos de 5 años">Menos de 5 años</option>
+                        <option value="5–10 años">5–10 años</option>
+                        <option value="Más de 10 años">Más de 10 años</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Breve Resumen de Experiencia</label>
+                    <textarea name="summary" rows="4"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent"
+                        placeholder="Describe brevemente tus últimas rutas y tipos de camión..."></textarea>
+                </div>
+
+                <div class="flex items-start mb-6">
+                    <input type="checkbox" required class="mt-1 mr-2">
+                    <span class="text-sm text-gray-600">Acepto la <a href="privacy-policy.html"
+                            class="underline hover:text-gray-800">política de privacidad</a> y el tratamiento de mis
+                        datos
+                        para procesos de selección.</span>
+                </div>
+
+                <button type="submit" id="submit-btn"
+                    class="w-full bg-blue-primary text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition-colors flex items-center justify-center gap-2">
+                    <span id="btn-text">Enviar solicitud</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <div id="footer-placeholder" class="mt-auto"></div>
+
+    <script src="js/layout.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script>
+        // Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+
+        // Inline form submission handled by form-handler.js
+    </script>
+</body>
+
+</html>

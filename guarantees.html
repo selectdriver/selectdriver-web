@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garantías - SelectDriver</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <meta name="description"
+        content="Nuestras garantías de servicio: reemplazo sin coste, documentación verificada y soporte continuo.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-primary': '#1E40AF',
+                        'orange-action': '#F97316',
+                        'gray-text': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-text flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <section class="bg-blue-primary text-white pt-28 pb-20 md:pt-40">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl lg:text-5xl font-bold mb-6 fade-in">Compromiso SelectDriver</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto fade-in mb-8">
+                Nuestra reputación se basa en la confianza. Por eso, respaldamos cada incorporación con condiciones
+                claras y garantías definidas.
+            </p>
+            <div class="fade-in">
+                <a href="contact.html?subject=Empresa"
+                    class="inline-block bg-orange-action text-white text-lg font-bold px-8 py-4 rounded-full shadow-lg hover:bg-orange-600 transition-all hover:-translate-y-1">
+                    Contactar (Empresas)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Guarantee -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="bg-orange-50 border-l-8 border-orange-action rounded-r-lg p-8 md:p-12 shadow-lg mb-16 fade-in">
+                <div class="flex flex-col md:flex-row items-start gap-6">
+                    <i class="fas fa-sync-alt text-5xl text-orange-action flex-shrink-0"></i>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Garantía de Sustitución (90 días)</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-3">
+                            Entendemos que la estabilidad es clave. Si durante los primeros <span
+                                class="font-bold text-blue-primary">90 días</span> la continuidad de la incorporación se
+                            ve afectada por una causa justificada y verificada, activamos el protocolo de sustitución
+                            sin coste adicional para la empresa, según las condiciones del servicio.
+                        </p>
+                        <p class="text-sm text-gray-500 italic mt-2 mb-4">Aplicable cuando se cumplen las condiciones
+                            del proceso y del contrato.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-3xl font-bold text-blue-primary text-center mb-12 fade-in">El Sello de Calidad SelectDriver
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition fade-in flex flex-col h-full">
+                    <i class="fas fa-file-signature text-4xl text-blue-primary mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Expediente listo y selección avanzada</h3>
+                    <p class="text-gray-600 flex-grow">
+                        Le entregamos perfiles preseleccionados con información y documentación revisada, entrevistas
+                        realizadas y una base previa de preparación. Todo presentado en un expediente organizado para
+                        que su equipo ahorre tiempo y pueda iniciar el proceso con mayor claridad y agilidad.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition fade-in flex flex-col h-full">
+                    <i class="fas fa-check-double text-4xl text-blue-primary mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Cumplimiento legal</h3>
+                    <p class="text-gray-600 flex-grow">
+                        Acompañamos a la empresa en la tramitación conforme a la normativa de extranjería aplicable, con
+                        revisión documental y enfoque de cumplimiento. Sin atajos.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition fade-in flex flex-col h-full">
+                    <i class="fas fa-headset text-4xl text-blue-primary mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Continuidad e integración</h3>
+                    <p class="text-gray-600 flex-grow">
+                        Tras la incorporación, mantenemos un seguimiento estructurado durante la fase inicial para
+                        facilitar la integración y reforzar la continuidad del puesto, alineando expectativas desde el
+                        inicio.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-blue-900 text-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-6 fade-in">¿Hablamos de garantías?</h2>
+            <p class="text-xl mb-8 text-blue-200 fade-in">Déjenos mostrarle por qué muchas empresas confían en
+                SelectDriver como partner para incorporar conductores con mayor fiabilidad.</p>
+            <a href="contact.html?subject=Empresa"
+                class="inline-block bg-orange-action hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg transition-colors fade-in">
+                Contactar Ahora
+            </a>
+        </div>
+    </section>
+
+    <div id="footer-placeholder" class="mt-auto"></div>
+
+    <script src="js/layout.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

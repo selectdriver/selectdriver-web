@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios para Empresas - SelectDriver</title>
+    <meta name="description"
+        content="Soluciones de reclutamiento de conductores profesionales para empresas de transporte. Personal verificado y formado.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-primary': '#1E40AF',
+                        'orange-action': '#F97316',
+                        'gray-text': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        /* Form success/error messages */
+        #form-feedback {
+            display: none;
+        }
+
+        #form-feedback.show {
+            display: block;
+        }
+
+        /* Left panel decorative dots */
+        .panel-dots {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-text flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="bg-blue-primary text-white pt-28 pb-20 md:pt-40">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl lg:text-5xl font-bold mb-6 fade-in">Soluciones de Personal para su Empresa</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto fade-in">
+                Resolvemos su necesidad de conductores profesionales con perfiles verificados, formados en normativa
+                europea y listos para integrarse.
+            </p>
+        </div>
+    </section>
+
+    <!-- Nuestros Servicios Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-primary mb-4 fade-in">Nuestros Servicios</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto fade-in">Una solución estructurada para incorporar conductores
+                    con mayor fiabilidad y hacer más eficiente su proceso de incorporación</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="p-8 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow fade-in">
+                    <div
+                        class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-primary">
+                        <i class="fas fa-search-plus text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-primary mb-3">Reclutamiento Especializado</h3>
+                    <p class="text-gray-600 mb-4">
+                        Búsqueda y selección de perfiles específicos según las necesidades de su flota (frigorífico,
+                        lona, portacoches, etc.).
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-check text-orange-action mt-0.5 flex-shrink-0"></i><span>Verificación de
+                                antecedentes</span></li>
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-check text-orange-action mt-0.5 flex-shrink-0"></i><span>Tests
+                                psicotécnicos</span></li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 — Approved exact content -->
+                <div class="p-8 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow fade-in">
+                    <div
+                        class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6 text-orange-action">
+                        <i class="fas fa-graduation-cap text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-primary mb-3">Preparación previa y base informativa</h3>
+                    <p class="text-gray-600 mb-4">
+                        Facilitamos candidatos con una base informativa en normativa europea de transporte y aspectos
+                        operativos clave, para favorecer una mejor preparación inicial antes de su incorporación.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-check text-orange-action mt-0.5 flex-shrink-0"></i><span>Información sobre
+                                tacógrafo, tiempos de conducción y descanso</span></li>
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-check text-orange-action mt-0.5 flex-shrink-0"></i><span>Base previa para
+                                una integración más segura y ordenada</span></li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-8 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow fade-in">
+                    <div
+                        class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-primary">
+                        <i class="fas fa-hands-helping text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-primary mb-3">Incorporación asistida y coordinación inicial
+                    </h3>
+                    <p class="text-gray-600 mb-4">
+                        Coordinamos y damos soporte al proceso de incorporación para reducir fricción, acelerar la
+                        adaptación y asegurar un arranque ordenado.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-check text-orange-action mt-0.5 flex-shrink-0"></i><span>Coordinación
+                                empresa–conductor en los primeros pasos</span></li>
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-check text-orange-action mt-0.5 flex-shrink-0"></i><span>Acompañamiento en
+                                documentación y pautas operativas iniciales</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por qué confiar en SelectDriver -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Image -->
+                <div class="fade-in order-2 md:order-1">
+                    <div class="relative rounded-xl overflow-hidden shadow-xl">
+                        <img src="images/logistics-coordination.png"
+                            alt="Coordinación logística profesional en transporte de mercancías"
+                            class="w-full h-90 object-cover object-center">
+                        <!-- subtle overlay for depth -->
+                        <div class="absolute inset-0 bg-blue-primary/10 pointer-events-none"></div>
+                    </div>
+                </div>
+                <!-- Content -->
+                <div class="fade-in order-1 md:order-2">
+                    <h2 class="text-3xl font-bold text-blue-primary mb-3">Por qué confiar en SelectDriver</h2>
+                    <p class="text-gray-500 mb-8 text-base">Más seguridad para decidir, más claridad en el proceso y un
+                        enfoque alineado con la realidad operativa del transporte</p>
+                    <div class="space-y-6">
+                        <!-- Pillar 1 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-shield-alt text-orange-action text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-800">Garantía de Reposición</h4>
+                                <p class="text-gray-600">Si el candidato no supera el periodo de prueba, gestionamos su
+                                    sustitución sin coste adicional.</p>
+                            </div>
+                        </div>
+                        <!-- Pillar 2 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-hand-holding-usd text-orange-action text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-800">Costes Transparentes</h4>
+                                <p class="text-gray-600">Sin sorpresas. Tarifas claras desde el primer momento y pago
+                                    vinculado a hitos.</p>
+                            </div>
+                        </div>
+                        <!-- Pillar 3 — Approved -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-truck text-orange-action text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-800">Conocimiento del sector y enfoque operativo
+                                </h4>
+                                <p class="text-gray-600">Entendemos la realidad del transporte de mercancías. Nuestro
+                                    proceso está diseñado desde dentro del sector, no desde fuera de él.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <a href="process.html"
+                            class="inline-flex items-center gap-2 bg-blue-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors">
+                            Conocer cómo trabajamos <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Lead Form Section -->
+    <section class="py-16 bg-white" id="contact-form">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-10 fade-in">
+                <h2 class="text-3xl font-bold text-blue-primary mb-3">Solicitar Información</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Cuéntenos su necesidad y le responderemos a la mayor brevedad
+                    posible.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden md:flex fade-in border border-gray-100">
+
+                <!-- Left Info Panel -->
+                <div
+                    class="bg-blue-primary panel-dots p-8 md:p-10 md:w-2/5 text-white flex flex-col justify-between relative overflow-hidden">
+                    <!-- Top content -->
+                    <div>
+                        <div
+                            class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-1.5 rounded-full mb-6">
+                            <i class="fas fa-medal text-orange-action text-sm"></i>
+                            <span class="text-sm font-semibold tracking-wide">SelectDriver Empresas</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 leading-snug">Hablemos sobre su necesidad de conductores</h3>
+                        <p class="text-blue-100 text-sm leading-relaxed mb-8">Cubrimos incorporaciones urgentes,
+                            planificaciones a medio plazo y cualquier consulta sobre nuestro proceso de selección.</p>
+
+                        <!-- Trust items -->
+                        <div class="space-y-5">
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-9 h-9 bg-orange-action/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="fas fa-user-tie text-orange-action text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-sm">Atención ágil y personalizada</p>
+                                    <p class="text-blue-200 text-xs">Nos pondremos en contacto para conocer su necesidad
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-9 h-9 bg-orange-action/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="fas fa-check-circle text-orange-action text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-sm">Proceso claro y estructurado</p>
+                                    <p class="text-blue-200 text-xs">Condiciones definidas desde el inicio</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-9 h-9 bg-orange-action/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="fas fa-shield-alt text-orange-action text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-sm">Garantía de sustitución (90 días)</p>
+                                    <p class="text-blue-200 text-xs">Aplicable en casos justificados y verificados,
+                                        según las condiciones del servicio
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom contact info -->
+                    <div class="mt-10 pt-6 border-t border-white/20 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-phone text-orange-action"></i>
+                            <a href="tel:+34603293679" class="text-sm hover:text-orange-action transition-colors">+34
+                                603 293 679</a>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-orange-action"></i>
+                            <a href="mailto:info@selectdriver.es"
+                                class="text-sm hover:text-orange-action transition-colors">info@selectdriver.es</a>
+                        </div>
+                    </div>
+
+                    <!-- Decorative element -->
+                    <div class="absolute -bottom-8 -right-8 w-36 h-36 bg-white/5 rounded-full border border-white/10">
+                    </div>
+                    <div class="absolute -bottom-16 -right-16 w-52 h-52 bg-white/5 rounded-full border border-white/10">
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="p-8 md:p-10 md:w-3/5 bg-white">
+                    <!-- Success message -->
+                    <div id="form-feedback" class="mb-6 rounded-xl p-5 border" role="alert"></div>
+
+                    <form id="companies-form" onsubmit="handleFormSubmit(event, 'companies')" class="space-y-5">
+                        <!-- Honeypot anti-spam field (hidden) -->
+                        <div style="display:none" aria-hidden="true">
+                            <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Nombre Empresa <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" name="companyName" required placeholder="Transportes Ejemplo S.L."
+                                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-transparent outline-none transition-all text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Persona de Contacto <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" name="contactName" required placeholder="Nombre y apellido"
+                                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-transparent outline-none transition-all text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Email Corporativo <span
+                                        class="text-red-500">*</span></label>
+                                <input type="email" name="email" required placeholder="contacto@empresa.es"
+                                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-transparent outline-none transition-all text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Teléfono <span
+                                        class="text-red-500">*</span></label>
+                                <input type="tel" name="phone" required placeholder="+34 6XX XXX XXX"
+                                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-transparent outline-none transition-all text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">Necesidad principal <span
+                                    class="text-red-500">*</span></label>
+                            <select name="need" required
+                                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-transparent outline-none transition-all text-sm bg-white">
+                                <option value="" disabled selected>Seleccionar...</option>
+                                <option value="Cobertura urgente">Cobertura urgente</option>
+                                <option value="Planificación de incorporaciones">Planificación de incorporaciones
+                                </option>
+                                <option value="Información sobre el servicio">Información sobre el servicio</option>
+                                <option value="Solicitar reunión">Solicitar reunión</option>
+                                <option value="Otra consulta">Otra consulta</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">Mensaje / Detalles</label>
+                            <textarea name="message" rows="4"
+                                placeholder="Descríbanos su situación y cualquier detalle relevante sobre su flota o necesidades..."
+                                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-transparent outline-none transition-all text-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" id="submit-btn"
+                            class="w-full bg-orange-action text-white font-bold py-3.5 rounded-lg hover:bg-orange-600 transition-colors text-base flex items-center justify-center gap-2">
+                            <span id="btn-text">Enviar Solicitud</span>
+                            <i class="fas fa-paper-plane text-sm opacity-80"></i>
+                        </button>
+
+                        <p class="text-xs text-gray-400 text-center">Al enviar, acepta nuestra <a
+                                href="privacy-policy.html" class="underline hover:text-gray-600">Política de
+                                Privacidad</a>.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder" class="mt-auto"></div>
+
+    <script src="js/layout.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script>
+        // Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

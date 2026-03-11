@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SelectDriver - Reclutamiento Internacional de Conductores</title>
-    <meta name="description" content="Conectamos empresas españolas de transporte con conductores profesionales de Latinoamérica. Perfiles verificados, formación europea previa.">
+    <meta name="description"
+        content="Conectamos empresas españolas de transporte con conductores profesionales de Latinoamérica. Perfiles verificados, formación europea previa.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,327 +18,442 @@
                         'blue-primary': '#1E40AF',
                         'orange-action': '#F97316',
                         'gray-text': '#374151'
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'slide-right': 'slideRight 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideRight: {
+                            '0%': { opacity: '0', transform: 'translateX(-20px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        }
                     }
                 }
             }
         }
     </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
-        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        .hover-lift:hover { transform: translateY(-5px); transition: transform 0.3s ease; }
-        .section { min-height: 100vh; padding: 6rem 0; }
-        .section:first-of-type { padding-top: 8rem; }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Anims */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-100 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-300 {
+            transition-delay: 0.3s;
+        }
+
+        .scale-on-hover:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        /* Reduce gap in hero for smaller screens */
+        @media (max-width: 768px) {
+            .hero-min-h {
+                min-height: auto;
+                padding-top: 8rem;
+                padding-bottom: 4rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hero-min-h {
+                min-height: 90vh;
+            }
+        }
     </style>
 </head>
 
-<body class="bg-white text-gray-text">
-    
-    <!-- Header fijo -->
-    <header class="bg-white shadow-sm fixed w-full top-0 z-50">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <!-- Logo actualizado -->
-                <div class="flex items-center">
-                    <img src="images/logo-selectdriver.png" alt="SelectDriver Logo" class="h-12 w-auto">
-                </div>
-                
-                <!-- Navegación Desktop -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="text-gray-text hover:text-orange-action transition-colors">Inicio</a>
-                    <a href="#empresas" class="text-gray-text hover:text-orange-action transition-colors">Empresas</a>
-                    <a href="#conductores" class="text-gray-text hover:text-orange-action transition-colors">Conductores</a>
-                    <a href="#proceso" class="text-gray-text hover:text-orange-action transition-colors">Proceso</a>
-                    <a href="#garantias" class="text-gray-text hover:text-orange-action transition-colors">Garantías</a>
-                    <a href="#faq" class="text-gray-text hover:text-orange-action transition-colors">FAQ</a>
-                    <a href="#contacto" class="text-gray-text hover:text-orange-action transition-colors">Contacto</a>
-                </div>
-                
-                <!-- CTA Mobile -->
-                <button onclick="showContactForm()" class="bg-orange-action text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors font-semibold">
-                    Empezar Ahora
-                </button>
-                
-                <!-- Hamburger Menu -->
-                <button class="md:hidden text-gray-text" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
-                <div class="flex flex-col space-y-3">
-                    <a href="#inicio" class="text-gray-text hover:text-orange-action transition-colors">Inicio</a>
-                    <a href="#empresas" class="text-gray-text hover:text-orange-action transition-colors">Empresas</a>
-                    <a href="#conductores" class="text-gray-text hover:text-orange-action transition-colors">Conductores</a>
-                    <a href="#proceso" class="text-gray-text hover:text-orange-action transition-colors">Proceso</a>
-                    <a href="#garantias" class="text-gray-text hover:text-orange-action transition-colors">Garantías</a>
-                    <a href="#faq" class="text-gray-text hover:text-orange-action transition-colors">FAQ</a>
-                    <a href="#contacto" class="text-gray-text hover:text-orange-action transition-colors">Contacto</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+<body class="bg-white text-gray-text font-sans">
+
+    <div id="header-placeholder"></div>
 
     <!-- PÁGINA INICIO -->
-    <section id="inicio" class="section bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
-                <div class="fade-in">
-                    <h1 class="text-4xl lg:text-5xl font-bold text-blue-primary mb-6">
-                        Unimos Conductores Profesionales con 
-                        <span class="text-orange-action">Empresas de Éxito</span>
+    <section id="inicio"
+        class="hero-min-h bg-gradient-to-br from-gray-50 to-blue-50 flex items-center relative overflow-hidden pt-28 md:pt-28">
+        <!-- Decoration bg -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-blue-100 opacity-20 -skew-x-12 transform translate-x-20">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <div class="reveal">
+                    <span
+                        class="bg-orange-100 text-orange-action px-4 py-1 rounded-full font-bold text-sm mb-4 inline-block tracking-wide">
+                        SELECCIÓN Y PREPARACIÓN PREVIA
+                    </span>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-primary mb-6 leading-tight">
+                        Conductores profesionales para asegurar su <span class="text-orange-action">operativa</span>
                     </h1>
-                    <p class="text-xl text-gray-600 mb-8">
-                        Perfiles verificados, con experiencia real y formación previa en normativa europea
+                    <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
+                        Ayudamos a empresas de transporte a cubrir necesidades de incorporación en España mediante
+                        selección, verificación y preparación previa de perfiles internacionales.
                     </p>
-                    
+
                     <!-- CTAs prominentes -->
-                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                        <button onclick="scrollTo('#empresas')" class="bg-blue-primary text-white px-8 py-4 rounded-lg hover:bg-blue-800 transition-colors font-semibold text-lg">
-                            Soy Empresa
-                        </button>
-                        <button onclick="scrollTo('#conductores')" class="bg-orange-action text-white px-8 py-4 rounded-lg hover:bg-orange-600 transition-colors font-semibold text-lg">
-                            Soy Conductor
-                        </button>
+                    <div class="flex flex-col sm:flex-row gap-6 mb-8">
+                        <a href="companies.html"
+                            class="group relative bg-blue-primary text-white px-8 py-4 rounded-xl hover:bg-blue-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 font-bold text-lg overflow-hidden inline-block text-center">
+                            <span class="relative z-10 flex items-center justify-center gap-2">Soy Empresa <i
+                                    class="fas fa-building opacity-70"></i></span>
+                            <div
+                                class="absolute inset-0 h-full w-full scale-0 rounded-xl transition-all duration-300 group-hover:scale-100 group-hover:bg-blue-700/50">
+                            </div>
+                        </a>
+                        <a href="drivers.html"
+                            class="group relative bg-white text-orange-action border-2 border-orange-action px-8 py-4 rounded-xl hover:bg-orange-50 transition-all shadow-md hover:shadow-lg hover:-translate-y-1 font-bold text-lg inline-block text-center">
+                            <span class="flex items-center justify-center gap-2">Soy Conductor <i
+                                    class="fas fa-steering-wheel opacity-70"></i></span>
+                        </a>
+                    </div>
+
+                    <!-- <div class="flex items-center gap-4 text-sm text-gray-500 font-medium">
+                        <div class="flex -space-x-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs">
+                                A</div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-gray-300 border-2 border-white flex items-center justify-center text-xs">
+                                J</div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-gray-400 border-2 border-white flex items-center justify-center text-xs">
+                                M</div>
+                        </div>
+                        
+                    </div> -->
+                </div>
+
+                <!-- Imagen actualizada -->
+                <div class="reveal reveal-delay-200 relative hidden md:block">
+                    <div class="absolute -inset-4 bg-orange-action/10 rounded-2xl transform rotate-3"></div>
+                    <div
+                        class="bg-white rounded-2xl shadow-2xl overflow-hidden relative transform transition-transform hover:scale-[1.01] duration-500">
+                        <img src="images/hero-handshake.jpg"
+                            alt="Conductor profesional estrechando la mano con empresario"
+                            class="w-full h-auto object-cover" />
+
+                        <!-- Floating Card -->
+                        <div
+                            class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm p-4 rounded-lg shadow-lg max-w-xs animate-float">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800">Garantía de sustitución</p>
+                                    <p class="text-xs text-gray-500">Durante los primeros 90 días</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Imagen del handshake actualizada -->
-                <div class="fade-in">
-                    <div class="bg-white rounded-xl shadow-xl overflow-hidden">
-                        <img src="images/hero-handshake.jpg" 
-                             alt="Conductor profesional estrechando la mano con empresario, con camión de fondo" 
-                             class="w-full h-auto" />
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section (New) -->
+    <section class="bg-blue-primary py-20 text-white relative shadow-inner">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-blue-700/50">
+                <div class="reveal">
+                    <h3 class="text-xl font-bold mb-2 text-orange-action">Operativa Segura</h3>
+                    <p class="text-white text-base font-medium">Procesos diseñados para garantizar continuidad
+                        operativa.
+                    </p>
+                </div>
+                <div class="reveal reveal-delay-100">
+                    <h3 class="text-xl font-bold mb-2 text-orange-action">Cumplimiento Legal</h3>
+                    <p class="text-white text-base font-medium">Procesos alineados con normativa laboral y migratoria.
+                    </p>
+                </div>
+                <div class="reveal reveal-delay-200">
+                    <h3 class="text-xl font-bold mb-2 text-orange-action">Incorporación Ágil</h3>
+                    <p class="text-white text-base font-medium">Integración eficiente según la planificación de la
+                        empresa.</p>
+                </div>
+                <div class="reveal reveal-delay-300">
+                    <h3 class="text-xl font-bold mb-2 text-orange-action">Soporte Profesional</h3>
+                    <p class="text-white text-base font-medium">Acompañamiento experto durante todo el proceso.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ¿Por qué SelectDriver? -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-blue-primary mb-4 fade-in">¿Por qué SelectDriver?</h2>
-            <p class="text-gray-600 mb-12 fade-in">Nuestro valor diferencial en cada proceso</p>
-            
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-primary mb-4">¿Por qué elegirnos?</h2>
+                <div class="w-20 h-1 bg-orange-action mx-auto mb-6 rounded-full"></div>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Más que una agencia de reclutamiento, somos su socio
+                    estratégico en la gestión de flotas.</p>
+            </div>
+
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="p-6 bg-gray-50 rounded-lg hover-lift fade-in">
-                    <div class="w-16 h-16 bg-blue-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-user-check text-white text-xl"></i>
+                <!-- Card 1 -->
+                <div
+                    class="group p-8 bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div
+                        class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-primary transition-colors duration-300">
+                        <i
+                            class="fas fa-user-check text-blue-primary text-2xl group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-blue-primary mb-3">Perfiles Verificados</h3>
-                    <p class="text-gray-600">Conductores con experiencia comprobada y documentación validada</p>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Perfiles Verificados</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Validamos antecedentes, referencias y experiencia
+                        en ruta de cada candidato rigurosamente.</p>
                 </div>
-                
-                <div class="p-6 bg-gray-50 rounded-lg hover-lift fade-in">
-                    <div class="w-16 h-16 bg-orange-action rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+
+                <!-- Card 2 -->
+                <div
+                    class="group p-8 bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 reveal reveal-delay-100">
+                    <div
+                        class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-action transition-colors duration-300">
+                        <i
+                            class="fas fa-graduation-cap text-orange-action text-2xl group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-blue-primary mb-3">Formación Previa</h3>
-                    <p class="text-gray-600">Especialización en normativa europea antes de llegada</p>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Formación Previa</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Preparación previa en normativa europea y seguridad
+                        operativa.</p>
                 </div>
-                
-                <div class="p-6 bg-gray-50 rounded-lg hover-lift fade-in">
-                    <div class="w-16 h-16 bg-blue-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-certificate text-white text-xl"></i>
+
+                <!-- Card 3 -->
+                <div
+                    class="group p-8 bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 reveal reveal-delay-200">
+                    <div
+                        class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-primary transition-colors duration-300">
+                        <i
+                            class="fas fa-certificate text-blue-primary text-2xl group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-blue-primary mb-3">Sello SelectDriver</h3>
-                    <p class="text-gray-600">Garantía de calidad y acompañamiento profesional</p>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Sustitución garantizada</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Cobertura de sustitución durante los primeros 90
+                        días.</p>
                 </div>
-                
-                <div class="p-6 bg-gray-50 rounded-lg hover-lift fade-in">
-                    <div class="w-16 h-16 bg-orange-action rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-headset text-white text-xl"></i>
+
+                <!-- Card 4 -->
+                <div
+                    class="group p-8 bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 reveal reveal-delay-300">
+                    <div
+                        class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-action transition-colors duration-300">
+                        <i
+                            class="fas fa-headset text-orange-action text-2xl group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-blue-primary mb-3">Acompañamiento Informativo</h3>
-                    <p class="text-gray-600">Soporte durante todo el proceso de integración</p>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Soporte Continuo</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Acompañamos tanto a la empresa como al conductor
+                        durante los primeros 6 meses.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Nuestro Proceso -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-blue-primary mb-4 fade-in">Nuestro Proceso</h2>
-            <p class="text-gray-600 mb-12 fade-in">4 pasos para el éxito garantizado</p>
-            
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="text-center fade-in">
-                    <div class="w-20 h-20 bg-orange-action rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-2xl relative">
-                        1
-                        <i class="fas fa-search absolute bottom-1 right-1 text-xs bg-white text-orange-action rounded-full p-1"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-blue-primary mb-2">Análisis</h3>
-                    <p class="text-gray-600">Evaluamos necesidades y perfiles</p>
-                </div>
-                
-                <div class="text-center fade-in">
-                    <div class="w-20 h-20 bg-orange-action rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-2xl relative">
-                        2
-                        <i class="fas fa-users absolute bottom-1 right-1 text-xs bg-white text-orange-action rounded-full p-1"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-blue-primary mb-2">Selección</h3>
-                    <p class="text-gray-600">Identificamos candidatos ideales</p>
-                </div>
-                
-                <div class="text-center fade-in">
-                    <div class="w-20 h-20 bg-orange-action rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-2xl relative">
-                        3
-                        <i class="fas fa-chalkboard-teacher absolute bottom-1 right-1 text-xs bg-white text-orange-action rounded-full p-1"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-blue-primary mb-2">Formación</h3>
-                    <p class="text-gray-600">Preparación en normativa europea</p>
-                </div>
-                
-                <div class="text-center fade-in">
-                    <div class="w-20 h-20 bg-orange-action rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-2xl relative">
-                        4
-                        <i class="fas fa-check absolute bottom-1 right-1 text-xs bg-white text-orange-action rounded-full p-1"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-blue-primary mb-2">Integración</h3>
-                    <p class="text-gray-600">Incorporación exitosa garantizada</p>
-                </div>
+    <!-- Nuestro Proceso (Redesigned) -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-orange-action font-bold tracking-wider uppercase text-sm">Metodología Probada</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-primary mt-2">Nuestro Proceso Simplificado</h2>
             </div>
-        </div>
-    </section>
 
-    <!-- Sello SelectDriver -->
-    <section class="py-16 bg-blue-primary text-white">
-        <div class="container mx-auto px-6 text-center">
-            <div class="bg-orange-action text-white px-6 py-2 rounded-full inline-block mb-6 fade-in">
-                Sello SelectDriver
-            </div>
-            <h2 class="text-3xl font-bold mb-6 fade-in">Garantía de Excelencia</h2>
-            <p class="text-xl mb-8 fade-in">Nuestro sello certifica la máxima calidad en cada conductor que incorporas</p>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white/10 p-6 rounded-lg fade-in">
-                    <i class="fas fa-clock text-3xl mb-4"></i>
-                    <p class="font-semibold">Experiencia mínima 5 años verificada</p>
-                </div>
-                <div class="bg-white/10 p-6 rounded-lg fade-in">
-                    <i class="fas fa-graduation-cap text-3xl mb-4"></i>
-                    <p class="font-semibold">Formación europea especializada</p>
-                </div>
-                <div class="bg-white/10 p-6 rounded-lg fade-in">
-                    <i class="fas fa-shield-alt text-3xl mb-4"></i>
-                    <p class="font-semibold">Documentación 100% verificada</p>
-                </div>
-                <div class="bg-white/10 p-6 rounded-lg fade-in">
-                    <i class="fas fa-handshake text-3xl mb-4"></i>
-                    <p class="font-semibold">Seguimiento post-incorporación</p>
+            <div class="relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 -translate-y-1/2 z-0"></div>
+
+                <div class="grid md:grid-cols-4 gap-8 relative z-10">
+                    <!-- Step 1 -->
+                    <div
+                        class="group bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl transition-all reveal hover:-translate-y-2">
+                        <div
+                            class="w-16 h-16 bg-orange-action text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 border-4 border-white shadow-lg relative group-hover:scale-110 transition-transform">
+                            1
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Análisis</h3>
+                        <p class="text-sm text-gray-500">Estudio de sus necesidades</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div
+                        class="group bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl transition-all reveal reveal-delay-100 hover:-translate-y-2">
+                        <div
+                            class="w-16 h-16 bg-blue-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 border-4 border-white shadow-lg relative group-hover:scale-110 transition-transform">
+                            2
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Selección</h3>
+                        <p class="text-sm text-gray-500">Filtrado de candidatos</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="group bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl transition-all reveal reveal-delay-200 hover:-translate-y-2">
+                        <div
+                            class="w-16 h-16 bg-orange-action text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 border-4 border-white shadow-lg relative group-hover:scale-110 transition-transform">
+                            3
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Formación</h3>
+                        <p class="text-sm text-gray-500">Capacitación normativa</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div
+                        class="group bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl transition-all reveal reveal-delay-300 hover:-translate-y-2">
+                        <div
+                            class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 border-4 border-white shadow-lg relative group-hover:scale-110 transition-transform">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Integración</h3>
+                        <p class="text-sm text-gray-500">Incorporación exitosa</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="bg-orange-action/20 p-6 rounded-lg mt-8 max-w-4xl mx-auto fade-in">
-                <i class="fas fa-info-circle text-2xl mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Acompañamiento Informativo Especializado</h3>
-                <p>Nuestro equipo proporciona soporte continuo durante los primeros 6 meses, asegurando una integración exitosa y reduciendo significativamente la rotación.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Final -->
-    <section class="py-16 bg-gradient-to-r from-orange-action to-orange-600 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6 fade-in">¿Listo para encontrar tu solución?</h2>
-            <p class="text-xl mb-8 fade-in">Conectamos talento con oportunidades de forma profesional y transparente</p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8 fade-in">
-                <button onclick="scrollTo('#empresas')" class="bg-blue-primary text-white px-8 py-4 rounded-lg hover:bg-blue-800 transition-colors font-semibold text-lg">
-                    Soy Empresa
-                </button>
-                <button onclick="scrollTo('#conductores')" class="bg-white text-orange-action px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-semibold text-lg">
-                    Soy Conductor
-                </button>
-            </div>
-            
-            <div class="fade-in">
-                <p class="text-lg mb-2">Contacto directo:</p>
-                <a href="mailto:info@selectdriver.es" class="text-xl font-semibold hover:underline">
-                    <i class="fas fa-envelope mr-2"></i>
-                    info@selectdriver.es
+            <div class="text-center mt-12 reveal">
+                <a href="process.html"
+                    class="inline-flex items-center text-blue-primary font-bold hover:text-orange-action transition-colors">
+                    Ver todos los detalles del proceso <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- RESTO DE PÁGINAS CONTINÚAN IGUAL... -->
-    <!-- [Aquí irían las demás secciones: empresas, conductores, proceso, garantías, faq, contacto] -->
+    <!-- Sello SelectDriver -->
+    <section class="py-20 bg-blue-primary text-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10"
+            style="background-image: radial-gradient(#ffffff 2px, transparent 2px); background-size: 30px 30px;"></div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <!-- Logo y descripción -->
-                <div class="md:col-span-2">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <img src="images/logo-selectdriver.png" alt="SelectDriver Logo" class="h-8 w-auto">
-                    </div>
-                    <p class="text-gray-300 mb-4">Especialistas en conectar conductores profesionales de América Latina con empresas de transporte en España.</p>
-                    <p class="text-gray-400 text-sm">
-                        <i class="fas fa-envelope mr-2"></i> info@selectdriver.es<br>
-                        <i class="fas fa-clock mr-2"></i> Horario: L-V 9:00-18:00 (CET)
-                    </p>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div
+                class="inline-flex items-center gap-2 bg-orange-action/20 border border-orange-action/30 px-6 py-2 rounded-full mb-8 reveal backdrop-blur-sm">
+                <i class="fas fa-medal text-orange-action"></i>
+                <span class="font-bold text-orange-action tracking-wide">CALIDAD CERTIFICADA</span>
+            </div>
+
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 reveal">Sello SelectDriver</h2>
+            <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto reveal">
+                Un estándar de calidad único en el mercado que garantiza la excelencia profesional de cada conductor.
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-all reveal">
+                    <i class="fas fa-clock text-4xl mb-4 text-orange-action"></i>
+                    <p class="font-bold text-lg mb-2">+5 Años</p>
+                    <p class="text-sm text-blue-200">Experiencia profesional verificable en transporte pesado</p>
                 </div>
-                
-                <!-- Enlaces -->
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Enlaces</h3>
-                    <div class="space-y-2">
-                        <a href="#" class="text-gray-300 hover:text-orange-400 transition-colors block">Aviso Legal</a>
-                        <a href="#" class="text-gray-300 hover:text-orange-400 transition-colors block">Política de Privacidad</a>
-                        <a href="#" class="text-gray-300 hover:text-orange-400 transition-colors block">Política de Cookies</a>
-                    </div>
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-all reveal reveal-delay-100">
+                    <i class="fas fa-globe-europe text-4xl mb-4 text-orange-action"></i>
+                    <p class="font-bold text-lg mb-2">Normativa UE</p>
+                    <p class="text-sm text-blue-200">Conocimiento operativo de normativa UE, tacógrafo y tiempos de
+                        conducción</p>
                 </div>
-                
-                <!-- Certificaciones -->
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Certificaciones</h3>
-                    <div class="space-y-2 text-gray-300">
-                        <p><i class="fas fa-certificate mr-2 text-orange-400"></i> Especialistas transporte internacional</p>
-                        <p><i class="fas fa-shield-alt mr-2 text-orange-400"></i> Cumplimiento RGPD</p>
-                        <p><i class="fas fa-balance-scale mr-2 text-orange-400"></i> Proceso legal y transparente</p>
-                        <div class="mt-4">
-                            <i class="fab fa-linkedin text-2xl text-blue-400"></i>
-                        </div>
-                    </div>
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-all reveal reveal-delay-200">
+                    <i class="fas fa-file-contract text-4xl mb-4 text-orange-action"></i>
+                    <p class="font-bold text-lg mb-2">Gestión documental</p>
+                    <p class="text-sm text-blue-200">Gestión documental conforme a los requisitos legales vigentes</p>
+                </div>
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-all reveal reveal-delay-300">
+                    <i class="fas fa-hands-helping text-4xl mb-4 text-orange-action"></i>
+                    <p class="font-bold text-lg mb-2">Onboarding</p>
+                    <p class="text-sm text-blue-200">Acompañamiento durante el proceso de incorporación en empresa</p>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-700 pt-8 text-center">
-                <p class="text-gray-400">&copy; 2024 SelectDriver. Todos los derechos reservados.</p>
+
+            <div class="reveal">
+                <button onclick="window.location.href='guarantees.html'"
+                    class="bg-white text-blue-primary px-8 py-3 rounded-full font-bold hover:bg-orange-action hover:text-white transition-all shadow-lg">
+                    Ver Garantías
+                </button>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <!-- JavaScript -->
+    <!-- CTA Final -->
+    <section class="py-20 bg-gradient-to-r from-orange-action to-orange-600 text-white relative">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 reveal">¿Listo para solucionar su problema de personal?</h2>
+
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mb-12 reveal">
+                <a href="companies.html"
+                    class="bg-blue-primary text-white px-10 py-5 rounded-xl hover:bg-blue-800 transition-all shadow-xl font-bold text-xl hover:-translate-y-1 inline-block">
+                    Soy Empresa
+                </a>
+                <a href="drivers.html"
+                    class="bg-white text-orange-action px-10 py-5 rounded-xl hover:bg-gray-100 transition-all shadow-xl font-bold text-xl hover:-translate-y-1 inline-block">
+                    Soy Conductor
+                </a>
+            </div>
+
+            <div class="reveal">
+                <p class="text-white/80 mb-2">¿Prefiere hablar directamente?</p>
+                <a href="mailto:info@selectdriver.es"
+                    class="text-2xl font-bold hover:text-blue-200 transition-colors inline-flex items-center gap-2">
+                    <i class="far fa-envelope"></i> info@selectdriver.es
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/layout.js"></script>
     <script>
-        // Smooth scroll
+        // Smooth scroll with offset for fixed header
         function scrollTo(target) {
-            document.querySelector(target).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const element = document.querySelector(target);
+            if (element) {
+                // Since this uses scrollTo for navigation buttons but those buttons on index often redirect to other pages in multi-page, 
+                // we should check if we just want to navigate or scroll.
+                // Assuming buttons on index currently just mimic navigation since it's a multi-page site now.
+                // Actually, "Soy Empresa" links to companies.html usually.
+                // Resetting logic to be simple navigation based on previous code usually having hrefs, but here they are buttons with onclick.
+                // I will map the IDs to URLs for the multi-page structure.
+
+                if (target === '#empresas') window.location.href = 'companies.html';
+                else if (target === '#conductores') window.location.href = 'drivers.html';
+                else {
+                    element.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
         }
 
-        // Toggle mobile menu
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Show contact form
-        function showContactForm() {
-            scrollTo('#contacto');
-        }
-
-        // Fade in animation on scroll
+        // Advanced Reveal Animation
         const observerOptions = {
-            threshold: 0.1,
+            threshold: 0.15,
             rootMargin: '0px 0px -50px 0px'
         };
 
@@ -342,24 +461,17 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Only animate once
                 }
             });
         }, observerOptions);
 
-        // Initialize animations and interactions
         document.addEventListener('DOMContentLoaded', () => {
-            // Observe all fade-in elements
-            document.querySelectorAll('.fade-in').forEach(el => {
+            document.querySelectorAll('.reveal').forEach(el => {
                 observer.observe(el);
-            });
-
-            // Close mobile menu when clicking on links
-            document.querySelectorAll('#mobileMenu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    document.getElementById('mobileMenu').classList.add('hidden');
-                });
             });
         });
     </script>
 </body>
+
 </html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes - SelectDriver</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <meta name="description"
+        content="Resolvemos sus dudas frecuentes sobre contratación internacional de conductores y procesos legales.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-primary': '#1E40AF',
+                        'orange-action': '#F97316',
+                        'gray-text': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details[open] summary~* {
+            animation: sweep .5s ease-in-out;
+        }
+
+        @keyframes sweep {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px)
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-text flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <section class="bg-blue-primary text-white pt-28 pb-20 md:pt-40">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl lg:text-5xl font-bold mb-6 fade-in">Preguntas Frecuentes</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto fade-in">
+                ¿Dudas sobre el proceso? Aquí tiene las respuestas más habituales.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white min-h-screen">
+        <div class="container mx-auto px-6 max-w-4xl">
+
+
+
+            <!-- Categories Wrapper -->
+            <div id="faqContainer">
+                <!-- Category: Empresas -->
+                <div class="mb-12 fade-in faq-category">
+                    <div class="flex items-center gap-3 mb-6 border-b pb-2">
+                        <i class="fas fa-building text-blue-primary text-2xl"></i>
+                        <h2 class="text-2xl font-bold text-blue-primary">Para Empresas</h2>
+                    </div>
+
+                    <div class="space-y-4">
+                        <details
+                            class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-100 hover:shadow-md transition-all duration-300">
+                            <summary
+                                class="flex justify-between items-center p-6 cursor-pointer bg-white group-hover:bg-gray-50 transition-colors">
+                                <span
+                                    class="font-bold text-lg text-gray-800 group-open:text-blue-primary transition-colors">¿Cuánto
+                                    tiempo tarda la incorporación de un conductor?</span>
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-primary group-open:bg-blue-primary group-open:text-white transition-all transform group-open:rotate-180">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-white border-t border-gray-100">
+                                <p class="mt-4">El plazo depende principalmente de la tramitación y resolución por parte
+                                    de la autoridad competente, por lo que no trabajamos con fechas cerradas.</p>
+                                <p class="mt-3">Lo que sí hacemos es acortar la parte controlable: preselección,
+                                    revisión documental y preparación del expediente para iniciar la tramitación con
+                                    orden y sin retrabajos.</p>
+                                <p class="mt-3">Durante el proceso, damos seguimiento y visibilidad del estado y de los
+                                    posibles requerimientos hasta la incorporación.</p>
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-100 hover:shadow-md transition-all duration-300">
+                            <summary
+                                class="flex justify-between items-center p-6 cursor-pointer bg-white group-hover:bg-gray-50 transition-colors">
+                                <span
+                                    class="font-bold text-lg text-gray-800 group-open:text-blue-primary transition-colors">¿Qué
+                                    ocurre si durante los primeros 90 días la incorporación no continúa?</span>
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-primary group-open:bg-blue-primary group-open:text-white transition-all transform group-open:rotate-180">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-white border-t border-gray-100">
+                                <p class="mt-4">Contamos con una <span class="font-bold text-gray-800">garantía de
+                                        sustitución</span> durante los primeros 90 días.</p>
+                                <p class="mt-3">Si la continuidad de la incorporación se ve afectada por una causa
+                                    justificada y verificada, activamos el protocolo de sustitución sin coste adicional
+                                    para la empresa, según las condiciones del servicio.</p>
+                                <p class="mt-3 text-sm text-gray-500 italic">Aplicable cuando se cumplen las condiciones
+                                    del proceso y del contrato.</p>
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-100 hover:shadow-md transition-all duration-300">
+                            <summary
+                                class="flex justify-between items-center p-6 cursor-pointer bg-white group-hover:bg-gray-50 transition-colors">
+                                <span
+                                    class="font-bold text-lg text-gray-800 group-open:text-blue-primary transition-colors">¿Es
+                                    necesario pagar por adelantado?</span>
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-primary group-open:bg-blue-primary group-open:text-white transition-all transform group-open:rotate-180">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-white border-t border-gray-100">
+                                <p class="mt-4">No necesariamente. El esquema de pago se define en función del servicio
+                                    y suele estructurarse por hitos. Lo detallamos en la propuesta comercial antes de
+                                    iniciar el proceso.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Category: Conductores -->
+                <div class="fade-in faq-category">
+                    <div class="flex items-center gap-3 mb-6 border-b pb-2">
+                        <i class="fas fa-steering-wheel text-orange-action text-2xl"></i>
+                        <h2 class="text-2xl font-bold text-blue-primary">Para Conductores</h2>
+                    </div>
+
+                    <div class="space-y-4">
+                        <details
+                            class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-100 hover:shadow-md transition-all duration-300">
+                            <summary
+                                class="flex justify-between items-center p-6 cursor-pointer bg-white group-hover:bg-gray-50 transition-colors">
+                                <span
+                                    class="font-bold text-lg text-gray-800 group-open:text-orange-action transition-colors">¿Debo
+                                    pagar algo para participar?</span>
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-orange-50 text-orange-action group-open:bg-orange-action group-open:text-white transition-all transform group-open:rotate-180">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-white border-t border-gray-100">
+                                <div class="flex items-center gap-3 bg-green-50 p-4 rounded-lg mb-3">
+                                    <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                                    <span class="font-bold text-green-700">No. Participar en el proceso no tiene coste
+                                        para el candidato.</span>
+                                </div>
+                                SelectDriver nunca cobra a los candidatos por participar en procesos de selección,
+                                entrevistas o trámites. Todos los costes de gestión y honorarios son asumidos
+                                íntegramente por las empresas contratantes en España.
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-100 hover:shadow-md transition-all duration-300">
+                            <summary
+                                class="flex justify-between items-center p-6 cursor-pointer bg-white group-hover:bg-gray-50 transition-colors">
+                                <span
+                                    class="font-bold text-lg text-gray-800 group-open:text-orange-action transition-colors">¿La
+                                    participación garantiza un contrato?</span>
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-orange-50 text-orange-action group-open:bg-orange-action group-open:text-white transition-all transform group-open:rotate-180">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-white border-t border-gray-100">
+                                <p class="mt-4">No. Participar en el proceso no garantiza contratación. Cada etapa se
+                                    confirma tras validar la anterior, y la contratación final depende del encaje con
+                                    las necesidades de cada empresa.</p>
+                            </div>
+                        </details>
+
+                        <details
+                            class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-100 hover:shadow-md transition-all duration-300">
+                            <summary
+                                class="flex justify-between items-center p-6 cursor-pointer bg-white group-hover:bg-gray-50 transition-colors">
+                                <span
+                                    class="font-bold text-lg text-gray-800 group-open:text-orange-action transition-colors">¿Qué
+                                    requisitos son imprescindibles?</span>
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-orange-50 text-orange-action group-open:bg-orange-action group-open:text-white transition-all transform group-open:rotate-180">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-white border-t border-gray-100">
+                                <ul class="mt-3 space-y-2">
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        Licencia C3 vigente (equivalente en España a C+E).</li>
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        Mínimo 5 años en transporte pesado (experiencia reciente demostrable).</li>
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        Pasaporte vigente (recomendable con al menos 2 años).</li>
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        Antecedentes penales limpios (se solicita en fase documental).</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <script>
+        // Accordion: opening one closes others
+        document.addEventListener('DOMContentLoaded', () => {
+            const allDetails = document.querySelectorAll('#faqContainer details');
+            allDetails.forEach(detail => {
+                detail.addEventListener('toggle', () => {
+                    if (detail.open) {
+                        allDetails.forEach(other => {
+                            if (other !== detail && other.open) other.open = false;
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Still have questions? -->
+    <section class="py-16 bg-blue-50 text-center">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl font-bold text-blue-primary mb-4 fade-in">¿No encuentra su respuesta?</h3>
+            <p class="text-gray-600 mb-8 fade-in">Estamos aquí para ayudarle con cualquier consulta específica.</p>
+            <a href="contact.html"
+                class="inline-block bg-blue-primary hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-lg transition-colors fade-in">
+                Ir a Contacto
+            </a>
+        </div>
+    </section>
+
+    <div id="footer-placeholder" class="mt-auto"></div>
+
+    <script src="js/layout.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

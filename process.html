@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Proceso - SelectDriver</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <meta name="description"
+        content="Conozca paso a paso cómo seleccionamos y preparamos a los mejores conductores internacionales para su empresa.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-primary': '#1E40AF',
+                        'orange-action': '#F97316',
+                        'gray-text': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-text flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <section class="bg-blue-primary text-white pt-28 pb-20 md:pt-40">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl lg:text-5xl font-bold mb-6 fade-in">Metodología SelectDriver</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto fade-in mb-4">
+                Un proceso riguroso y transparente para incorporar conductores de transporte pesado con mayor
+                fiabilidad.
+            </p>
+            <p class="text-sm text-blue-200 mb-8 fade-in">Proceso por fases. Cada etapa se confirma tras validar la
+                anterior.</p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                <a href="contact.html?subject=Empresa"
+                    class="group relative bg-orange-action text-white px-8 py-4 rounded-xl hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-1 font-bold text-center">
+                    <span class="block text-lg">Contactar</span>
+                    <span class="block text-xs font-normal opacity-90 mt-1">Para empresas de transporte</span>
+                </a>
+                <a href="drivers.html#driver-form"
+                    class="group relative bg-white text-blue-primary px-8 py-4 rounded-xl hover:bg-blue-50 transition-all shadow-lg hover:-translate-y-1 font-bold text-center">
+                    <span class="block text-lg">Iniciar evaluación</span>
+                    <span class="block text-xs font-normal text-blue-800 mt-1">Para candidatos</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 1 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 fade-in">
+                    <div class="inline-block bg-orange-100 text-orange-action rounded-full px-4 py-1 font-bold mb-4">
+                        Fase 1</div>
+                    <h2 class="text-3xl font-bold text-blue-primary mb-4">Análisis de Necesidades</h2>
+                    <p class="text-gray-600 mb-6">
+                        No enviamos currículums al azar. Analizamos su operativa para lograr una incorporación más
+                        eficaz y estable.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-action mt-1 mr-3"></i>
+                            <span>Tipo de rutas (nacional o internacional)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-action mt-1 mr-3"></i>
+                            <span>Vehículos y tipo de mercancía</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-action mt-1 mr-3"></i>
+                            <span>Cultura operativa y necesidades reales</span>
+                        </li>
+                    </ul>
+                    <p class="text-gray-600 mt-6">
+                        Definimos el perfil objetivo (competencias técnicas y personales) y confirmamos la viabilidad
+                        del proceso.
+                    </p>
+                    <p class="font-bold text-blue-primary mt-4">
+                        Resultado: incorporación alineada con su operativa y su planificación.
+                    </p>
+                </div>
+                <div class="order-1 md:order-2 flex justify-center fade-in">
+                    <i class="fas fa-search-location text-9xl text-blue-100"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 2 -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="flex justify-center fade-in">
+                    <i class="fas fa-users-cog text-9xl text-orange-100"></i>
+                </div>
+                <div class="fade-in">
+                    <div class="inline-block bg-blue-100 text-blue-primary rounded-full px-4 py-1 font-bold mb-4">Fase 2
+                    </div>
+                    <h2 class="text-3xl font-bold text-blue-primary mb-4">Reclutamiento y Selección</h2>
+                    <p class="text-gray-600 mb-6">
+                        Identificamos y filtramos candidatos en Latinoamérica mediante un proceso de selección riguroso,
+                        presentando perfiles preseleccionados que cumplen el estándar requerido.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-primary mt-1 mr-3"></i>
+                            <span>Verificación rigurosa de referencias laborales</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-primary mt-1 mr-3"></i>
+                            <span>Validación de documentación original</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-primary mt-1 mr-3"></i>
+                            <span>Entrevistas técnicas y evaluación de perfil</span>
+                        </li>
+                    </ul>
+                    <p class="text-gray-600 mt-6">
+                        Nuestro proceso está dirigido exclusivamente a conductores profesionales del transporte de
+                        mercancías.
+                        Presentamos candidatos que cumplen los requisitos operativos, legales y de adaptación al entorno
+                        europeo.
+                    </p>
+                    <p class="font-bold text-blue-primary mt-4">
+                        Resultado: perfiles preseleccionados, fiables y listos para incorporarse.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 3 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 fade-in">
+                    <div class="inline-block bg-orange-100 text-orange-action rounded-full px-4 py-1 font-bold mb-4">
+                        Fase 3</div>
+                    <h2 class="text-3xl font-bold text-blue-primary mb-4">Preparación operativa previa</h2>
+                    <p class="text-gray-600 mb-6">
+                        Antes de su incorporación, el conductor recibe una preparación informativa orientada al entorno
+                        operativo europeo.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-action mt-1 mr-3"></i>
+                            <span>Reglamento CE 561/2006 (tiempos de conducción y descanso)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-action mt-1 mr-3"></i>
+                            <span>Uso correcto del tacógrafo digital</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-action mt-1 mr-3"></i>
+                            <span>Protocolos de seguridad y sujeción de carga</span>
+                        </li>
+                    </ul>
+                    <p class="text-gray-600 mt-6">
+                        Se facilita información práctica alineada con la normativa europea y estándares del sector para
+                        favorecer una incorporación más segura y ordenada.
+                    </p>
+                    <p class="font-bold text-blue-primary mt-4">
+                        Resultado: incorporación más ágil y menor riesgo de incidencias operativas.
+                    </p>
+                    <p class="text-xs text-gray-500 mt-2">
+                        Nota: Esta preparación es informativa y no constituye formación oficial ni certificación.
+                    </p>
+                </div>
+                <div class="order-1 md:order-2 flex justify-center fade-in">
+                    <i class="fas fa-book-open text-9xl text-blue-100"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 4 -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="flex justify-center fade-in">
+                    <i class="fas fa-plane-arrival text-9xl text-orange-100"></i>
+                </div>
+                <div class="fade-in">
+                    <div class="inline-block bg-blue-100 text-blue-primary rounded-full px-4 py-1 font-bold mb-4">Fase 4
+                    </div>
+                    <h2 class="text-3xl font-bold text-blue-primary mb-4">Gestión Administrativa e Incorporación</h2>
+                    <p class="text-gray-600 mb-6">
+                        Acompañamos a la empresa en el proceso administrativo necesario para la tramitación de la
+                        autorización de trabajo y residencia.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-primary mt-1 mr-3"></i>
+                            <span>Orientación sobre documentación y procedimientos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-primary mt-1 mr-3"></i>
+                            <span>Guía en los trámites requeridos por las autoridades competentes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-primary mt-1 mr-3"></i>
+                            <span>Validación documental previa del conductor</span>
+                        </li>
+                    </ul>
+                    <p class="text-gray-600 mt-6">
+                        El conductor podrá completar los trámites necesarios en su país de origen y avanzar hacia su
+                        incorporación conforme a la planificación de la empresa.
+                    </p>
+                    <p class="font-bold text-blue-primary mt-4 mb-2">
+                        Resultado: incorporación más ordenada y mayor claridad en la tramitación.
+                    </p>
+                    <p class="text-xs text-gray-500">
+                        Nota: Los requisitos pueden variar según la autoridad competente y la provincia. Acompañamos el
+                        proceso ante posibles requerimientos adicionales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing & CTA -->
+    <section class="py-16 bg-white text-center">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl md:text-3xl font-bold text-blue-primary mb-8 fade-in">
+                Conductores preparados, integrados y operativos desde el inicio.
+            </h3>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in mt-8">
+                <a href="contact.html?subject=Empresa"
+                    class="group relative bg-orange-action text-white px-8 py-4 rounded-xl hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-1 font-bold text-center">
+                    <span class="block text-lg">Contactar</span>
+                    <span class="block text-xs font-normal opacity-90 mt-1">Para empresas de transporte</span>
+                </a>
+                <a href="drivers.html#driver-form"
+                    class="group relative bg-white text-blue-primary border-2 border-blue-primary px-8 py-4 rounded-xl hover:bg-blue-50 transition-all shadow-lg hover:-translate-y-1 font-bold text-center border-solid">
+                    <span class="block text-lg">Iniciar evaluación</span>
+                    <span class="block text-xs font-normal text-blue-800 mt-1">Para candidatos</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder" class="mt-auto"></div>
+
+    <script src="js/layout.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
