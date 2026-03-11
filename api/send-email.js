@@ -15,9 +15,17 @@ module.exports = async (req, res) => {
     }
 
     // Validate required environment variables
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.EMAIL_TO) {
-        console.error('Missing environment variables');
-        return res.status(500).json({ error: 'Server configuration error' });
+    const missingVars = [];
+    if (!process.env.EMAIL_USER) missingVars.push('EMAIL_USER');
+    if (!process.env.EMAIL_PASS) missingVars.push('EMAIL_PASS');
+    if (!process.env.EMAIL_TO) missingVars.push('EMAIL_TO');
+
+    if (missingVars.length > 0) {
+        console.error('Missing environment variables:', missingVars.join(', '));
+        return res.status(500).json({
+            error: 'Server configuration error',
+            details: `Missing variables: ${missingVars.join(', ')}`
+        });
     }
 
     // Configure Transporter for handling any SMTP service
