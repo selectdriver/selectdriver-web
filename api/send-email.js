@@ -15,17 +15,9 @@ module.exports = async (req, res) => {
     }
 
     // Validate required environment variables
-    const missingVars = [];
-    if (!process.env.EMAIL_USER) missingVars.push('EMAIL_USER');
-    if (!process.env.EMAIL_PASS) missingVars.push('EMAIL_PASS');
-    if (!process.env.EMAIL_TO) missingVars.push('EMAIL_TO');
-
-    if (missingVars.length > 0) {
-        console.error('Missing environment variables:', missingVars.join(', '));
-        return res.status(500).json({
-            error: 'Server configuration error',
-            details: `Missing variables: ${missingVars.join(', ')}`
-        });
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.EMAIL_TO) {
+        console.error('Missing environment variables');
+        return res.status(500).json({ error: 'Server configuration error' });
     }
 
     // Configure Transporter for handling any SMTP service
@@ -38,10 +30,9 @@ module.exports = async (req, res) => {
             pass: process.env.EMAIL_PASS
         },
         tls: {
-            ciphers: 'SSLv3', // Often required for older SSL support on Office 365
-            rejectUnauthorized: false // Helps avoid local/intermediate certificate issues
-        },
-        requireTLS: true
+            ciphers: 'SSLv3', // Some legacy O365 setups need this, but modern ones don't
+            rejectUnauthorized: false
+        }
     });
 
     // Generate timestamp
@@ -136,9 +127,10 @@ module.exports = async (req, res) => {
                         <tr><td style="padding: 8px 4px; color: #6b7280;"><strong>Email:</strong></td><td style="padding: 8px 4px;"><a href="mailto:${data.email}" style="color: #1E40AF;">${data.email}</a></td></tr>
                         <tr><td style="padding: 8px 4px; color: #6b7280;"><strong>Teléfono:</strong></td><td style="padding: 8px 4px;">${data.phone}</td></tr>
                         <tr><td style="padding: 8px 4px; color: #6b7280;"><strong>Experiencia:</strong></td><td style="padding: 8px 4px;">${data.experience}</td></tr>
+                        <tr><td style="padding: 8px 4px; color: #6b7280;"><strong>¿Licencia < 2009?:</strong></td><td style="padding: 8px 4px;">${data.licensePriorSept2009}</td></tr>
+                        <tr><td style="padding: 8px 4px; color: #6b7280;"><strong>Fecha Expedición:</strong></td><td style="padding: 8px 4px;">${data.licenseIssueDate}</td></tr>
                         <tr><td style="padding: 8px 4px; color: #6b7280;"><strong>Fecha/hora:</strong></td><td style="padding: 8px 4px;">${timestamp}</td></tr>
                     </table>
-                    ${data.summary ? `<div style="margin-top: 16px;"><p style="color: #6b7280; font-size: 14px; margin-bottom: 6px;"><strong>Resumen:</strong></p><blockquote style="background: #ffffff; padding: 12px 16px; border-left: 4px solid #1E40AF; margin: 0; border-radius: 0 4px 4px 0; font-size: 14px;">${data.summary}</blockquote></div>` : ''}
                 </div>
             </div>
         `;
