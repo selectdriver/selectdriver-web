@@ -107,7 +107,7 @@
 
                     <p class="mt-6 text-sm text-gray-500 italic">Respondemos en 24–48h laborables.</p>
 
-                    <!-- Added Compromiso Section to fill space -->
+                    <!-- Added Compromiso Section -->
                     <div class="mt-12 p-6 bg-blue-50 rounded-xl border border-blue-100 fade-in">
                         <h4 class="font-bold text-blue-primary mb-4 flex items-center gap-2">
                             <i class="fas fa-shield-alt"></i>
@@ -136,21 +136,29 @@
                 <!-- General Form -->
                 <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 shadow-sm fade-in">
                     <h2 class="text-2xl font-bold text-blue-primary mb-6">Envíenos un Mensaje</h2>
+
+                    <!-- Feedback element for errors -->
+                    <div id="form-feedback" class="mb-6 rounded-xl p-5 border hidden" role="alert"></div>
+
                     <form onsubmit="handleFormSubmit(event, 'contact')" class="space-y-6">
+                        <!-- Honeypot anti-spam field (hidden) -->
+                        <div style="display:none" aria-hidden="true">
+                            <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
                             <input type="text" name="fullName" required
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
                             <input type="email" name="email" required
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Asunto</label>
                             <select name="subject"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent bg-white outline-none">
                                 <option>Soy Empresa</option>
                                 <option>Soy Conductor</option>
                                 <option>Información General</option>
@@ -160,11 +168,15 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
                             <textarea name="message" rows="5" required
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent"></textarea>
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none"></textarea>
                         </div>
+
+                        <!-- Anti-spam Math Captcha -->
+                        <div class="math-captcha-container mb-6"></div>
+
                         <button type="submit"
                             class="w-full bg-orange-action text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition-colors">
-                            Enviar Mensaje
+                            <span id="btn-text">Enviar Mensaje</span>
                         </button>
                     </form>
                 </div>
@@ -186,13 +198,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         });
-
-        function handleSubmit(e) {
-            e.preventDefault();
-            // Connect with EmailJS/backend here
-            alert('Mensaje enviado. Le responderemos a la mayor brevedad.');
-            e.target.reset();
-        }
     </script>
 </body>
 
