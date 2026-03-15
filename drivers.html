@@ -199,14 +199,14 @@
     </section>
 
     <!-- Evaluation Form -->
-    <section class="py-16 bg-white" id="driver-form">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <div class="text-center mb-10">
+    <section id="driver-form" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-blue-primary mb-4 fade-in">Formulario de Evaluación Inicial</h2>
                 <p class="text-gray-600 fade-in">Da el primer paso hacia tu carrera en Europa</p>
             </div>
 
-            <!-- Success message -->
+            <!-- Success/Error feedback -->
             <div id="form-feedback" class="mb-6 rounded-xl p-5 border hidden" role="alert"></div>
 
             <form id="drivers-form" onsubmit="handleFormSubmit(event, 'drivers')"
@@ -221,47 +221,34 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
                         <input type="text" name="fullName" required
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">País</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">País de Residencia</label>
                         <input type="text" name="country" required
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none">
                     </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
                         <input type="email" name="email" required
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp (con prefijo)</label>
-                        <input type="tel" name="phone" required
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent"
-                            pattern="^\+?[0-9\s\-\(\)]+$">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono (WhatsApp)</label>
+                        <input type="tel" name="phone" required placeholder="+54 9 11..."
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none">
                     </div>
                 </div>
 
                 <div class="mb-6">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Años de experiencia en transporte
-                        pesado</label>
-                    <select name="experience" required
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent bg-white">
-                        <option value="" disabled selected>Selecciona una opción</option>
-                        <option value="Menos de 5 años">Menos de 5 años</option>
-                        <option value="5–10 años">5–10 años</option>
-                        <option value="Más de 10 años">Más de 10 años</option>
-                    </select>
-                </div>
-
-                <div class="mb-6">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">¿La fecha de expedición de tu primer permiso de conducción C2 o C3 es anterior al 11 de septiembre de 2009?</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">¿Tienes licencia C2 o C3 por primera vez
+                        antes del 11 de septiembre de 2009?</label>
                     <select name="licensePriorSept2009" required
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent bg-white">
-                        <option value="" disabled selected>Selecciona una opción</option>
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none bg-white">
+                        <option value="" disabled selected>Selecciona una opción...</option>
                         <option value="Sí">Sí</option>
                         <option value="No">No</option>
                         <option value="No estoy seguro">No estoy seguro</option>
@@ -269,29 +256,62 @@
                 </div>
 
                 <div class="mb-6">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Fecha de expedición de tu primer permiso C2 o C3</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Fecha de expedición de tu primera
+                        licencia C2 o C3</label>
                     <input type="date" name="licenseIssueDate" required
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
-                    <p class="mt-2 text-xs text-gray-500 italic font-medium">
-                        “Indica la fecha en la que se expidió por primera vez tu permiso C2 o C3. No corresponde a renovaciones, duplicados o recategorizaciones posteriores.”
-                    </p>
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none">
+                    <p class="mt-2 text-xs text-gray-500 italic">Esta información es importante para verificar si
+                        necesitas realizar el curso CAP inicial o continuo en España. Indica la fecha en la que
+                        obtuviste por primera vez el permiso para camión rígido o articulado.</p>
                 </div>
 
-                <div class="flex items-start mb-6">
-                    <input type="checkbox" required class="mt-1 mr-2">
-                    <span class="text-sm text-gray-600">Acepto la <a href="privacy-policy.html"
-                            class="underline hover:text-gray-800">política de privacidad</a> y el tratamiento de mis
-                        datos
-                        para procesos de selección.</span>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Experiencia profesional (Breve
+                        resumen)</label>
+                    <textarea name="experience" rows="4" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none"></textarea>
                 </div>
 
-                <button type="submit" id="submit-btn"
-                    class="w-full bg-blue-primary text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition-colors flex items-center justify-center gap-2">
-                    <span id="btn-text">Enviar solicitud</span>
+                <!-- Anti-spam Math Captcha -->
+                <div class="math-captcha-container mb-6"></div>
+
+                <button type="submit"
+                    class="w-full bg-orange-action text-white font-bold py-4 rounded-lg hover:bg-orange-600 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                    <span id="btn-text">Enviar Evaluación</span>
+                    <i class="fas fa-paper-plane"></i>
                 </button>
+                <p class="text-center text-xs text-gray-500 mt-4">
+                    Al enviar, confirmas que cumples los requisitos básicos y aceptas nuestra política de privacidad.
+                </p>
             </form>
         </div>
     </section>
+
+    <!-- Professional Support -->
+    <section class="py-16 bg-blue-primary text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8 fade-in">Soporte Durante Todo el Proceso</h2>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-12 fade-in">
+                No estás solo. Acompañamos a nuestros conductores seleccionados en cada paso: desde la documentación
+                hasta su llegada a la base en España.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="fade-in">
+                    <div class="text-4xl font-bold text-orange-action mb-2">100%</div>
+                    <div class="text-sm uppercase tracking-wider">Acompañamiento</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl font-bold text-orange-action mb-2">Legal</div>
+                    <div class="text-sm uppercase tracking-wider">Trámite Seguro</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl font-bold text-orange-action mb-2">Directo</div>
+                    <div class="text-sm uppercase tracking-wider">Sin Intermediarios</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <div id="footer-placeholder" class="mt-auto"></div>
 
