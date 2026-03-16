@@ -90,11 +90,14 @@ module.exports = async (req, res) => {
     let internalHtml = '';
     let autoResponseSubject = '';
     let autoResponseHtml = '';
+
+    // Normalize type
+    const normalizedType = (type || '').toLowerCase().trim();
     const clientEmail = data.email;
     const clientName = data.contactName || data.fullName || 'Usuario';
     const source = data.source || 'Website';
 
-    if (type === 'companies') {
+    if (normalizedType === 'companies') {
         const need = data.need || 'Consulta general';
 
         // REQ: [SelectDriver Web] Cobertura urgente — [Company Name]
@@ -134,7 +137,7 @@ module.exports = async (req, res) => {
             <p style="font-size: 14px; color: #6b7280;">Si tiene alguna urgencia o desea agilizar el proceso, puede escribirnos directamente respondiendo a este email o llamarnos al <a href="tel:+34603293679" style="color: #1E40AF; text-decoration: none; font-weight: 600;">+34 603 293 679</a>.</p>
         `, '#1E40AF');
 
-    } else if (type === 'drivers') {
+    } else if (normalizedType === 'drivers') {
         internalSubject = `🚚 Nueva Evaluación Conductor: ${data.fullName}`;
         internalHtml = getEmailTemplate('Nueva Evaluación de Conductor', `
             <p>Un nuevo conductor ha completado el formulario de evaluación inicial desde la web.</p>
@@ -162,29 +165,31 @@ module.exports = async (req, res) => {
             <p style="font-size: 14px; color: #6b7280;">No es necesario que envíes documentos adicionales en este momento. Un consultor se pondrá en contacto contigo pronto.</p>
         `, '#F97316');
 
-    } else if (type === 'contact') {
+    } else {
+        // Default to 'contact' type if not 'companies' or 'drivers', or explicitly 'contact'
         internalSubject = `📩 Consulta Web: ${data.subject || 'Sin asunto'}`;
         internalHtml = getEmailTemplate('Nueva Consulta General', `
             <p>Se ha recibido un nuevo mensaje a través del formulario de contacto de la web.</p>
             <table class="info-table">
-                <tr><td class="label">Nombre</td><td class="value"><strong>${data.fullName}</strong></td></tr>
-                <tr><td class="label">Email</td><td class="value"><a href="mailto:${data.email}" style="color: #374151;">${data.email}</a></td></tr>
+                <tr><td class="label">Nombre</td><td class="value"><strong>${clientName}</strong></td></tr>
+                <tr><td class="label">Email</td><td class="value"><a href="mailto:${clientEmail}" style="color: #374151;">${clientEmail}</a></td></tr>
                 <tr><td class="label">Asunto</td><td class="value">${data.subject || 'General'}</td></tr>
                 <tr><td class="label">Fecha/Hora</td><td class="value">${timestamp}</td></tr>
                 <tr><td class="label">Origen</td><td class="value">${source}</td></tr>
             </table>
             <p><strong>Mensaje:</strong></p>
-            <div class="quote">${data.message}</div>
+            <div class="quote">${data.message || '(Sin mensaje)'}</div>
         `, '#374151');
 
         autoResponseSubject = 'Hemos recibido tu consulta — SelectDriver';
         autoResponseHtml = getEmailTemplate('Confirmación de contacto', `
-            <p>Hola <strong>${data.fullName}</strong>,</p>
+            <p>Hola <strong>${clientName}</strong>,</p>
             <p>Gracias por contactar con SelectDriver. Te confirmamos que hemos recibido tu mensaje correctamente.</p>
             <div class="highlight-box" style="border-left-color: #374151; background-color: #f9fafb;">
                 <p style="margin: 0; color: #374151; font-weight: 500;">Un miembro de nuestro equipo revisará tu consulta y te responderá lo antes posible. Habitualmente respondemos en menos de 24 horas hábiles.</p>
             </div>
             <p>Si tu consulta es sobre empleo para conductores, te recomendamos revisar nuestra sección de <a href="https://selectdriver.es/drivers.html" style="color: #1E40AF;">conductores</a> para agilizar el proceso.</p>
+            <p style="font-size: 14px; color: #6b7280;">Si necesitas una respuesta inmediata, también puedes llamarnos al <a href="tel:+34603293679" style="color: #1E40AF; text-decoration: none;">+34 603 293 679</a>.</p>
         `, '#374151');
     }
 
