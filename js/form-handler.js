@@ -139,6 +139,13 @@ function showThankYouPopup(type, data) {
         iconColor = 'text-blue-primary';
         brandColor = 'bg-blue-primary';
         btnColor = 'bg-blue-primary';
+    } else if (type === 'contact') {
+        title = 'Consulta recibida';
+        message = `Hola <strong>${name}</strong>, gracias por contactar con nosotros. Hemos recibido tu mensaje y un miembro de nuestro equipo te responderá en las próximas **24-48 horas hábiles**. ¡Revisa tu email!`;
+        icon = 'fa-envelope-open-text';
+        iconColor = 'text-blue-primary';
+        brandColor = 'bg-blue-primary';
+        btnColor = 'bg-blue-primary';
     }
 
     // Create Modal Backdrop
