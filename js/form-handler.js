@@ -54,7 +54,7 @@ async function handleFormSubmit(event, type) {
             country: getValue('country'),
             email: getValue('email'),
             phone: getValue('phone'),
-            experience: getValue('experience'),
+            yearsExperience: getValue('yearsExperience'),
             licensePriorSept2009: getValue('licensePriorSept2009'),
             licenseIssueDate: getValue('licenseIssueDate'),
             website: honeypot

@@ -146,9 +146,9 @@ module.exports = async (req, res) => {
                 <tr><td class="label">País</td><td class="value">${data.country}</td></tr>
                 <tr><td class="label">Email</td><td class="value"><a href="mailto:${data.email}" style="color: #F97316;">${data.email}</a></td></tr>
                 <tr><td class="label">Teléfono</td><td class="value">${data.phone}</td></tr>
-                <tr><td class="label">Experiencia</td><td class="value">${data.experience}</td></tr>
+                <tr><td class="label">Años Experiencia</td><td class="value">${data.yearsExperience}</td></tr>
                 <tr><td class="label">Licencia < 2009</td><td class="value">${data.licensePriorSept2009}</td></tr>
-                <tr><td class="label">Fecha Licencia</td><td class="value">${data.licenseIssueDate}</td></tr>
+                <tr><td class="label">Fecha Licencia C2/C3</td><td class="value">${data.licenseIssueDate}</td></tr>
                 <tr><td class="label">Fecha/Hora</td><td class="value">${timestamp}</td></tr>
                 <tr><td class="label">Origen</td><td class="value">${source}</td></tr>
             </table>

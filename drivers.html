@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Conductores - SelectDriver</title>
+    <title>Conductores - SelectDriver</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <meta name="description"
-        content="Oportunidades laborales para conductores profesionales en España. Requisitos, proceso de selección y recursos.">
+        content="Únase a SelectDriver. Conectamos conductores profesionales de Latinoamérica con empresas de transporte en España.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,6 +24,7 @@
         }
     </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/css/intlTelInput.css">
     <style>
         html {
             scroll-behavior: smooth;
@@ -40,165 +41,81 @@
             transform: translateY(0);
         }
 
-        .hover-lift:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s ease;
+        /* intl-tel-input Tailwind Fix */
+        .iti {
+            width: 100%;
+            display: block;
+        }
+
+        .iti__country-list {
+            z-index: 50;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/intlTelInput.min.js"></script>
 </head>
 
 <body class="bg-gray-50 text-gray-text flex flex-col min-h-screen">
 
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-blue-900 to-blue-primary text-white pt-28 pb-20 md:pt-40">
+    <section class="bg-blue-primary text-white pt-28 pb-20 md:pt-40">
         <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl lg:text-5xl font-bold mb-6 fade-in">Tu futuro profesional en Europa</h1>
+            <h1 class="text-4xl lg:text-5xl font-bold mb-6 fade-in">Su Carrera en España Comienza Aquí</h1>
             <p class="text-xl text-blue-100 max-w-3xl mx-auto fade-in mb-8">
-                Conectamos tu talento con las empresas de transporte de España.<br>
-                Proceso transparente, legal y sin comisiones de intermediación para el candidato.
+                Seleccionamos conductores profesionales de Latinoamérica para incorporarse a las flotas más importantes
+                de España.
             </p>
             <div class="fade-in">
                 <a href="#driver-form"
-                    class="inline-block bg-orange-action text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-orange-600 hover:shadow-xl transition-all transform hover:-translate-y-1">
-                    Iniciar evaluación
+                    class="bg-orange-action text-white text-lg font-bold px-8 py-4 rounded-full shadow-lg hover:bg-orange-600 transition-all hover:-translate-y-1 inline-block">
+                    Iniciar Evaluación Gratuita
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Requirements Section -->
+    <!-- Requirements Grid -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12 fade-in">
-                <h2 class="text-3xl font-bold text-blue-primary mb-3">Requisitos indispensables</h2>
-                <p class="text-gray-600 text-sm font-medium">Si cumples estos requisitos, puedes iniciar tu evaluación.
-                </p>
-            </div>
-
+            <h2 class="text-3xl font-bold text-blue-primary text-center mb-12 fade-in">Requisitos Imprescindibles</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-orange-action fade-in flex flex-col h-full">
-                    <i class="fas fa-id-card text-3xl text-blue-primary mb-4"></i>
-                    <h3 class="text-lg font-bold mb-2">Permiso de Conducir</h3>
-                    <p class="text-gray-600 leading-relaxed">Licencia C3 vigente (equivalente en España a C+E).</p>
+                <!-- Req 1 -->
+                <div
+                    class="p-6 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition fade-in">
+                    <i class="fas fa-id-card text-3xl text-orange-action mb-4"></i>
+                    <h3 class="font-bold text-gray-800 mb-2">Licencia C3</h3>
+                    <p class="text-sm text-gray-600">Equivalente en España a la licencia C+E (Vehículos pesados con
+                        remolque).</p>
                 </div>
-                <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-orange-action fade-in flex flex-col h-full">
-                    <i class="fas fa-history text-3xl text-blue-primary mb-4"></i>
-                    <h3 class="text-lg font-bold mb-2">Experiencia</h3>
-                    <p class="text-gray-600 leading-relaxed">Mínimo 5 años en transporte pesado (experiencia reciente
-                        demostrable).</p>
+                <!-- Req 2 -->
+                <div
+                    class="p-6 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition fade-in">
+                    <i class="fas fa-clock text-3xl text-orange-action mb-4"></i>
+                    <h3 class="font-bold text-gray-800 mb-2">+5 Años Experiencia</h3>
+                    <p class="text-sm text-gray-600">Experiencia reciente y demostrable en transporte pesado de larga
+                        distancia.</p>
                 </div>
-                <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-orange-action fade-in flex flex-col h-full">
-                    <i class="fas fa-file-contract text-3xl text-blue-primary mb-4"></i>
-                    <h3 class="text-lg font-bold mb-2">Pasaporte</h3>
-                    <p class="text-gray-600 leading-relaxed">Pasaporte vigente (recomendable con al menos 2 años).</p>
+                <!-- Req 3 -->
+                <div
+                    class="p-6 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition fade-in">
+                    <i class="fas fa-passport text-3xl text-orange-action mb-4"></i>
+                    <h3 class="font-bold text-gray-800 mb-2">Pasaporte Vigente</h3>
+                    <p class="text-sm text-gray-600">Indispensable para iniciar cualquier trámite de contrato
+                        internacional.</p>
                 </div>
-                <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-orange-action fade-in flex flex-col h-full">
-                    <i class="fas fa-user-check text-3xl text-blue-primary mb-4"></i>
-                    <h3 class="text-lg font-bold mb-2">Antecedentes</h3>
-                    <p class="text-gray-600 leading-relaxed">Antecedentes penales limpios (se solicita en fase
-                        documental).</p>
+                <!-- Req 4 -->
+                <div
+                    class="p-6 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition fade-in">
+                    <i class="fas fa-check-double text-3xl text-orange-action mb-4"></i>
+                    <h3 class="font-bold text-gray-800 mb-2">Evaluación Aprobada</h3>
+                    <p class="text-sm text-gray-600">Superar nuestro riguroso proceso de verificación y entrevistas
+                        técnicas.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Selection Process -->
-    <section class="py-16 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12 fade-in">
-                <h2 class="text-3xl font-bold text-blue-primary mb-3">Nuestro Proceso de Selección</h2>
-                <p class="text-gray-600 text-sm font-medium">Proceso por fases. Cada etapa se confirma tras validar la
-                    anterior.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Step 1 -->
-                <div
-                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 fade-in flex flex-col h-full text-center hover:-translate-y-1 transition-transform relative">
-                    <div
-                        class="w-12 h-12 bg-blue-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow shadow-blue-primary/30">
-                        1
-                    </div>
-                    <h3 class="text-lg font-bold text-blue-primary mb-3">Registro y sesión informativa</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Completa el registro y participa en una sesión
-                        donde explicamos el proceso, requisitos y expectativas.</p>
-                </div>
-
-                <!-- Step 2 -->
-                <div
-                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 fade-in flex flex-col h-full text-center hover:-translate-y-1 transition-transform relative">
-                    <div
-                        class="w-12 h-12 bg-orange-action text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow shadow-orange-action/30">
-                        2
-                    </div>
-                    <h3 class="text-lg font-bold text-blue-primary mb-3">Cuestionario y validación documental</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Revisamos tu información y documentación para
-                        verificar coherencia y requisitos del proceso.</p>
-                </div>
-
-                <!-- Step 3 -->
-                <div
-                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 fade-in flex flex-col h-full text-center hover:-translate-y-1 transition-transform relative">
-                    <div
-                        class="w-12 h-12 bg-blue-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow shadow-blue-primary/30">
-                        3
-                    </div>
-                    <h3 class="text-lg font-bold text-blue-primary mb-3">Entrevista técnica y evaluación de perfil</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Videollamada para validar experiencia, criterios
-                        técnicos y aspectos de adaptación profesional.</p>
-                </div>
-
-                <!-- Step 4 -->
-                <div
-                    class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 fade-in flex flex-col h-full text-center hover:-translate-y-1 transition-transform relative">
-                    <div
-                        class="w-12 h-12 bg-orange-action text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow shadow-orange-action/30">
-                        4
-                    </div>
-                    <h3 class="text-lg font-bold text-blue-primary mb-3">Preparación y habilitación del perfil</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">Recibirás una preparación práctica para
-                        incorporarte con mayor seguridad. Después, validamos el estándar del proceso y activamos tu
-                        perfil para oportunidades con empresas.</p>
-                    <p class="text-xs text-gray-400 mt-auto border-t pt-3">Nota: La activación depende de superar las
-                        validaciones del proceso. No garantiza contratación.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Acompañamiento -->
-    <section class="py-10 bg-blue-primary text-white">
-        <div class="container mx-auto px-6 max-w-5xl text-center">
-            <h2 class="text-3xl font-bold mb-3 fade-in">Acompañamiento durante todo el proceso</h2>
-            <p class="text-lg text-blue-100 mb-8 fade-in">Te guiamos en cada etapa para que avances con claridad y
-                seguridad.</p>
-
-            <div class="grid md:grid-cols-3 gap-6 fade-in">
-                <div
-                    class="bg-white/10 px-8 py-7 rounded-xl border border-white/20 h-full flex flex-col items-center justify-center hover:bg-white/15 transition-colors">
-                    <i class="fas fa-compass text-2xl text-orange-300 mb-3"></i>
-                    <p class="font-bold text-base text-center">Antes de la selección</p>
-                    <p class="text-blue-100 text-sm text-center mt-1">Orientación y validación de requisitos</p>
-                </div>
-                <div
-                    class="bg-white/10 px-8 py-7 rounded-xl border border-white/20 h-full flex flex-col items-center justify-center hover:bg-white/15 transition-colors">
-                    <i class="fas fa-tasks text-2xl text-orange-300 mb-3"></i>
-                    <p class="font-bold text-base text-center">Durante la incorporación</p>
-                    <p class="text-blue-100 text-sm text-center mt-1">Pasos y preparación por fases</p>
-                </div>
-                <div
-                    class="bg-white/10 px-8 py-7 rounded-xl border border-white/20 h-full flex flex-col items-center justify-center hover:bg-white/15 transition-colors">
-                    <i class="fas fa-handshake text-2xl text-orange-300 mb-3"></i>
-                    <p class="font-bold text-base text-center">Tras la elección</p>
-                    <p class="text-blue-100 text-sm text-center mt-1">Apoyo en los primeros pasos de integración</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Evaluation Form -->
+    <!-- Assessment Form Section -->
     <section id="driver-form" class="py-20 bg-gray-100">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="text-center mb-12">
@@ -238,14 +155,15 @@
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono (WhatsApp)</label>
-                        <input type="tel" name="phone" required placeholder="+54 9 11..."
+                        <input type="tel" id="driver-phone" name="phone_input" required
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none">
+                        <input type="hidden" name="phone">
                     </div>
                 </div>
 
                 <div class="mb-6">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">¿Tienes licencia C2 o C3 por primera vez
-                        antes del 11 de septiembre de 2009?</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">¿La fecha de expedición de tu primer
+                        permiso de conducción C2 o C3 es anterior al 11 de septiembre de 2009?</label>
                     <select name="licensePriorSept2009" required
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none bg-white">
                         <option value="" disabled selected>Selecciona una opción...</option>
@@ -256,20 +174,24 @@
                 </div>
 
                 <div class="mb-6">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Fecha de expedición de tu primera
-                        licencia C2 o C3</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Fecha de expedición de tu primer permiso
+                        C2 o C3</label>
                     <input type="date" name="licenseIssueDate" required
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none">
-                    <p class="mt-2 text-xs text-gray-500 italic">Esta información es importante para verificar si
-                        necesitas realizar el curso CAP inicial o continuo en España. Indica la fecha en la que
-                        obtuviste por primera vez el permiso para camión rígido o articulado.</p>
+                    <p class="mt-2 text-xs text-gray-500 italic">Indica la fecha en la que se expidió por primera vez tu
+                        permiso C2 o C3. No corresponde a renovaciones, duplicados o recategorizaciones posteriores.</p>
                 </div>
 
                 <div class="mb-6">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Experiencia profesional (Breve
-                        resumen)</label>
-                    <textarea name="experience" rows="4" required
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none"></textarea>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">¿Cuántos años de experiencia tienes
+                        conduciendo vehículos pesados articulados?</label>
+                    <select name="yearsExperience" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none bg-white">
+                        <option value="" disabled selected>Selecciona una opción...</option>
+                        <option value="Menos de 5 años">Menos de 5 años</option>
+                        <option value="Entre 5 y 10 años">Entre 5 y 10 años</option>
+                        <option value="Más de 10 años">Más de 10 años</option>
+                    </select>
                 </div>
 
                 <!-- Anti-spam Math Captcha -->
@@ -312,13 +234,11 @@
         </div>
     </section>
 
-
     <div id="footer-placeholder" class="mt-auto"></div>
 
     <script src="js/layout.js"></script>
     <script src="js/form-handler.js"></script>
     <script>
-        // Animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -326,10 +246,42 @@
         }, { threshold: 0.1 });
 
         document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        });
 
-        // Inline form submission handled by form-handler.js
+            // Initialize Intl-Tel-Input
+            const phoneInput = document.querySelector("#driver-phone");
+            if (phoneInput) {
+                const iti = window.intlTelInput(phoneInput, {
+                    initialCountry: "auto",
+                    geoIpLookup: callback => {
+                        fetch("https://ipapi.co/json")
+                            .then(res => res.json())
+                            .then(data => callback(data.country_code))
+                            .catch(() => callback("es"));
+                    },
+                    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/utils.js",
+                    autoPlaceholder: "aggressive",
+                    preferredCountries: ["es", "co", "ar", "mx", "pe", "cl"],
+                    separateDialCode: true
+                });
+
+                // Update hidden input with full number
+                const form = document.querySelector("#drivers-form");
+                const hiddenPhone = form.querySelector('input[name="phone"]');
+
+                const syncPhone = () => {
+                    hiddenPhone.value = iti.getNumber();
+                };
+
+                phoneInput.addEventListener('change', syncPhone);
+                phoneInput.addEventListener('keyup', syncPhone);
+                phoneInput.addEventListener('blur', syncPhone);
+
+                // Also sync before form submit (just in case)
+                form.addEventListener('submit', syncPhone);
+            }
+        });
     </script>
 </body>
 
